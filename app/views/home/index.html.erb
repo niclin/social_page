@@ -286,54 +286,54 @@
 			</div>
 			<div id="hub">
 				<a href="https://www.youtube.com/channel/UC5TB0Pv2k1LdtGeMB6ErtJQ?sub_confirmation=1" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'yt');">
+					<div onclick="gtag('send', 'event', 'hub', 'yt');">
 						<%= image_tag("yt.svg") %>
 						<span class="media-title">4.28 萬訂閱</span> <!-- work -->
 					</div>
 				</a>
 				<a href="https://www.instagram.com/niclin_tw" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'ig');">
+					<div onclick="gtag('send', 'event', 'hub', 'ig');">
 						<%= image_tag("ig.svg") %>
 						<span class="media-title">3,800 粉絲</span> <!-- work -->
 					</div>
 				</a>
 				<a href="https://shopee.tw/bboyceo" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'shopee');">
+					<div onclick="gtag('send', 'event', 'hub', 'shopee');">
 						<%= image_tag("shopee.png") %>
 						<span class="media-title">購買周邊商品</span> <!-- work -->
 					</div>
 				</a>
 
 				<a href="https://beiyi.info/app" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'beiyi');">
+					<div onclick="gtag('send', 'event', 'hub', 'beiyi');">
 						<%= image_tag("beiyi.png") %>
 						<span class="media-title">北宜公路即時路況 App</span> <!-- work -->
 					</div>
 				</a>
 
 				<a href="https://roeagle.com/app" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'beiyi');">
+					<div onclick="gtag('send', 'event', 'hub', 'beiyi');">
 						<%= image_tag("roeagle.png") %>
 						<span class="media-title">台七乙、台南 182、陽金即時路況 App</span> <!-- work -->
 					</div>
 				</a>
 
 				<a href="https://blog.niclin.tw/" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'blog');">
+					<div onclick="gtag('send', 'event', 'hub', 'blog');">
 						<%= image_tag("blog_logo.png") %>
 						<span class="media-title">技術部落格</span> <!-- work -->
 					</div>
 				</a>
 
 				<a href="https://linkedin.com/in/nic-lin" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'blog');">
+					<div onclick="gtag('send', 'event', 'hub', 'blog');">
 						<%= image_tag("linkedin.png") %>
 						<span class="media-title">Linkedin</span> <!-- work -->
 					</div>
 				</a>
 
 				<a href="https://github.com/niclin" target="_blank">
-					<div onclick="ga('send', 'event', 'hub', 'blog');">
+					<div onclick="gtag('send', 'event', 'hub', 'blog');">
 						<%= image_tag("github.png") %>
 						<span class="media-title">Github</span> <!-- work -->
 					</div>
@@ -341,7 +341,7 @@
 
 				<%= image_tag("mail.svg") %>
 				<a href="javascript: showCopybox('QQMLZ');">
-					<div onclick="ga('send', 'event', 'hub', 'mail');" id="div_QQMLZ">
+					<div onclick="gtag('send', 'event', 'hub', 'mail');" id="div_QQMLZ">
 						Email 聯繫</div>
 				</a>
 				<div class="copybox" id="box_QQMLZ">
@@ -353,7 +353,7 @@
 		</div>
 		<div align="center" style="color: #FFF; font-size: 14px; padding: 10px 0;">
 			<span id="version_note"><a href="" target="_blank"
-					onclick="ga('send', 'event', 'hub', 'more');" style="color: #FFF;">
+					onclick="gtag('send', 'event', 'hub', 'more');" style="color: #FFF;">
 				</a>
 			</span>Powered by 在地上滾的工程師 Nic
 			<span id="blockCheck">
@@ -362,7 +362,6 @@
 	</div>
 
 	<script type="text/javascript">
-		const path = (location.hostname == "localhost" || location.hostname == "office-lab.pics.ee") ? "/picsee" : "";
 		let setCountdown = '';
 
 		const onAutoPlayBoxTrigger = () => {
