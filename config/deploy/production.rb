@@ -1,6 +1,5 @@
 role :app, %w[deploy@139.162.126.84]
 role :web, %w[deploy@139.162.126.84]
-role :db,  %w[deploy@139.162.126.84], primary: true
 
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
