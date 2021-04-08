@@ -49,7 +49,7 @@ set :keep_releases, 5
 # Puma
 set :puma_init_active_record, true
 set :puma_preload_app, true
-set :puma_role, :web
+set :puma_role, :app
 
 # Rbenv
 set :rbenv_type, :system
