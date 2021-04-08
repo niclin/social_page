@@ -1,6 +1,3 @@
-# config valid for current version and patch releases of Capistrano
-lock '~> 3.11.0'
-
 set :application, 'nic_social'
 set :repo_url, 'git@github.com:niclin/social_page.git'
 
