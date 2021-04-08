@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="關於在地上滾的工程師 Nic 一切" />
+
+    <meta property="og:image" content="<%= asset_path('avatar.JPG') %>" />
+    <meta property="og:title" content="在地上滾的工程師 Nic" />
+    <meta property="og:description" content="關於在地上滾的工程師 Nic 一切" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="在地上滾的工程師 Nic">
+    <meta name="twitter:description" content="關於在地上滾的工程師 Nic 一切">
+    <meta name="twitter:image:src" content="<%= asset_path('avatar.JPG') %>">
+
+    <title>在地上滾的工程師 Nic</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

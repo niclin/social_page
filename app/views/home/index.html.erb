@@ -1,0 +1,453 @@
+<style type="text/css">
+	body {
+		margin: 0px;
+		padding: 0px;
+		font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+		background-color: #000;
+	}
+
+	a,
+	a:link,
+	a:hover {
+		text-decoration: none;
+		color: #06F;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 10px 20px 10px 20px;
+		border-radius: 5px;
+		font-size: 20px;
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+		cursor: pointer;
+	}
+
+	.content {
+		color: #ffffff;
+		position: absolute;
+		left: 10px;
+		right: 10px;
+		height: 100vh;
+	}
+
+	.content-front {
+		max-width: 500px;
+	}
+
+	.preview {
+		margin-top: 60px;
+		background-image: url("<%= asset_path('avatar.JPG') %>");
+		background-size: cover;
+		border-radius: 90px;
+		width: 180px;
+		height: 180px;
+	}
+
+	.about {
+		text-align: left;
+		padding: 10px;
+	}
+
+	.about h1 {
+		font-size: 30px;
+		line-height: 40px;
+		text-align: center;
+	}
+
+	.bg {
+		background-image: url("<%= asset_path('mv.gif') %>");
+		background-color: #333333;
+		height: 100vh;
+		text-align: center;
+		line-height: 100vh;
+		position: fixed;
+	}
+
+	.bg-blur {
+		float: left;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		-webkit-filter: blur(0px) brightness(50%);
+		filter: blur(0px) brightness(50%);
+	}
+
+	.option {
+		color: black;
+	}
+
+	.media-title {
+		width: 70%;
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* more_list */
+	#hub {
+		padding: 10px;
+		text-align: left;
+	}
+
+
+	#hub>a>div {
+		line-height: 40px;
+		color: #FFF;
+		font-size: 17px;
+		padding-bottom: 7px;
+	}
+
+	#hub img {
+		height: 40px;
+		float: left;
+		margin-right: 10px;
+		border-radius: 6px;
+	}
+
+	#hub .copybox {
+		display: none;
+		line-height: 40px;
+	}
+
+	#hub .copybox input {
+		line-height: 35px;
+		color: #333;
+		border-radius: 10px;
+		border: none;
+		padding: 0 10px;
+		width: 50%;
+		margin: 0 10px 9px 0;
+	}
+
+	#hub .copybox a {
+		background-color: #337ab7;
+		border-color: #337ab7;
+		box-shadow: 0 5px 12px rgba(0, 0, 0, .3);
+		color: #eee;
+		text-decoration: none;
+		border-radius: 100px;
+		letter-spacing: 2px;
+		padding: 10px 15px;
+	}
+
+	.star-img {
+		width: 40px;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	/**** auto update ****/
+
+	.auto-update-box {
+		line-height: 40px;
+		display: inline-block;
+		padding: 10px;
+		background-color: #111;
+		border-radius: 8px;
+		margin: 15px 0 15px 0;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	a.auto-update-box {
+		color: #FFF;
+	}
+
+	.auto-update-icon {
+		width: 40px;
+		height: 40px;
+		border-radius: 8px;
+		margin-right: 10px;
+		float: left;
+	}
+
+	.auto-update-text-box {
+		width: 60%;
+		text-align: left;
+		float: left;
+	}
+
+	.auto-update-text-box-top {
+		line-height: 23px;
+		font-size: 17px;
+	}
+
+	.auto-update-text-box-bottom {
+		line-height: 17px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.auto-update-image {
+		height: 40px;
+		border-radius: 2px;
+		float: right;
+	}
+
+	@media (max-width: 361px) {
+		.auto-update-text-box {
+			width: 55%;
+		}
+	}
+
+	@media (max-width: 770px) {
+		#hub .copybox .copy_btn {
+			display: none;
+		}
+	}
+
+	/**** 5s auto open ****/
+
+	.auto-open-box {
+		position: fixed;
+		top: 5vh;
+		line-height: 50px;
+		display: inline-block;
+		right: -400px;
+	}
+
+	.animation-10 {
+		transition: ease;
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		-ms-transition: 1s;
+		-o-transition: 1s;
+		transition-duration: 1s;
+		cursor: pointer;
+	}
+
+	.auto-open-box-active {
+		right: 0px;
+	}
+
+	.auto-open-countdown-box {
+		height: 50px;
+		width: 50px;
+		float: left;
+		background-color: #222;
+		font-size: 18px;
+	}
+
+	.auto-open-textbox {
+		width: 35vw;
+		max-width: 350px;
+		padding: 7px 0 7px 10px;
+		text-align: left;
+		float: left;
+		background-color: #2225;
+	}
+
+	.auto-open-textbox-top {
+		line-height: 18px;
+		font-size: 16px;
+		white-space: nowrap;
+	}
+
+	.auto-open-textbox-bottom {
+		line-height: 18px;
+		font-size: 13px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: #eee;
+	}
+
+	/**** podcast ****/
+
+	#podcastMedia,
+	#autoUpdatePodcastMedia {
+		height: 30px;
+		width: 30vw;
+		margin-top: 5px;
+		margin-left: -100%;
+		min-width: 300px;
+		max-width: 350px;
+		opacity: 0;
+	}
+
+	a,
+	a:hover {
+		color: #fff;
+	}
+</style>
+</head>
+
+<body>
+	<div id="big_panel_bg" class="bg bg-blur"></div>
+	<div id="big_panel" class="content" align="center">
+		<div class="content-front">
+			<div class="preview"></div>
+			<div class="about">
+				<h1>在地上滾的工程師 Nic</h1>
+				關於我的一切都可以在這裡找到
+			</div>
+			<div id="hub">
+				<a href="https://www.youtube.com/channel/UC5TB0Pv2k1LdtGeMB6ErtJQ?sub_confirmation=1" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'yt');">
+						<%= image_tag("yt.svg") %>
+						<span class="media-title">4.28 萬訂閱</span> <!-- work -->
+					</div>
+				</a>
+				<a href="https://www.instagram.com/niclin_tw" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'ig');">
+						<%= image_tag("ig.svg") %>
+						<span class="media-title">3,800 粉絲</span> <!-- work -->
+					</div>
+				</a>
+				<a href="https://shopee.tw/bboyceo" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'shopee');">
+						<%= image_tag("shopee.png") %>
+						<span class="media-title">購買周邊商品</span> <!-- work -->
+					</div>
+				</a>
+
+				<a href="https://beiyi.info/app" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'beiyi');">
+						<%= image_tag("beiyi.png") %>
+						<span class="media-title">北宜公路即時路況 App</span> <!-- work -->
+					</div>
+				</a>
+
+				<a href="https://roeagle.com/app" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'beiyi');">
+						<%= image_tag("roeagle.png") %>
+						<span class="media-title">台七乙、台南 182、陽金即時路況 App</span> <!-- work -->
+					</div>
+				</a>
+
+				<a href="https://blog.niclin.tw/" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'blog');">
+						<%= image_tag("blog_logo.png") %>
+						<span class="media-title">技術部落格</span> <!-- work -->
+					</div>
+				</a>
+
+				<a href="https://linkedin.com/in/nic-lin" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'blog');">
+						<%= image_tag("linkedin.png") %>
+						<span class="media-title">Linkedin</span> <!-- work -->
+					</div>
+				</a>
+
+				<a href="https://github.com/niclin" target="_blank">
+					<div onclick="ga('send', 'event', 'hub', 'blog');">
+						<%= image_tag("github.png") %>
+						<span class="media-title">Github</span> <!-- work -->
+					</div>
+				</a>
+
+				<%= image_tag("mail.svg") %>
+				<a href="javascript: showCopybox('QQMLZ');">
+					<div onclick="ga('send', 'event', 'hub', 'mail');" id="div_QQMLZ">
+						Email 聯繫</div>
+				</a>
+				<div class="copybox" id="box_QQMLZ">
+					<input type="text" id="input_QQMLZ" value="niclin0226小老鼠gmail.com" onclick="copyInput('QQMLZ')" readonly>
+					<a class="copy_btn" href="javascript: copyInput('QQMLZ');">複製</a>
+					<a href="http://pros.si/QQMLZ">寄信</a>
+				</div>
+			</div>
+			<span style="text-align: left;" id="boost_space">
+				<ins class="rmax" data-rmax-space-id="4dd094a3544c4725" data-rmax-space-type="NATIVE"
+					data-target-pos="INNER"></ins>
+				<script async="async" src="//tenmax-static.cacafly.net/ssp/adsbytenmax.js"></script>
+			</span>
+		</div>
+		<div align="center" style="color: #FFF; font-size: 14px; padding: 10px 0;">
+			<span id="version_note"><a href="https://picsee.io/socialvip?utm_source=Profile" target="_blank"
+					onclick="ga('send', 'event', 'hub', 'more');" style="color: #FFF;">
+				</a>
+			</span>Powered by 在地上滾的工程師 Nic
+			<span id="blockCheck">
+			</span>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const path = (location.hostname == "localhost" || location.hostname == "office-lab.pics.ee") ? "/picsee" : "";
+		let setCountdown = '';
+
+		const onAutoPlayBoxTrigger = () => {
+			clearInterval(setCountdown);
+			document.querySelector('.auto-open-box').classList.remove("auto-open-box-active");
+			location.href = '';
+		}
+
+		const isApple = () => {
+			return navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('iPad') > 0;
+		}
+
+		const onAutoUpdateBoxClick = url => fetch(url, {
+				redirect: 'manual'
+			})
+			.then(res => console.log(res));
+
+		function showCopybox(id) {
+			document.querySelector("#div_" + id).style.display = "none";
+			document.querySelector("#box_" + id).style.display = "block";
+			document.querySelector('#input_' + id).value = document.querySelector('#input_' + id).value.replace(/小老鼠/, "@")
+				.trim();
+		}
+
+		function copyInput(id) {
+			const el = document.querySelector('#input_' + id);
+			const oldContentEditable = el.contentEditable;
+			const oldReadOnly = el.readOnly;
+			const range = document.createRange();
+
+			el.focus();
+			// 如果 readOnly 會造成無法複製
+			el.contentEditable = true;
+			el.readOnly = false;
+			range.selectNodeContents(el);
+
+			// 包含物件所有內容物
+			el.setSelectionRange(0, 999999);
+			el.contentEditable = oldContentEditable;
+			el.readOnly = oldReadOnly;
+
+			const successful = document.execCommand('copy');
+
+			if (successful) {
+				alert("已複製：" + document.querySelector('#input_' + id).value);
+			}
+
+			document.execCommand('selectAll', false, null);
+
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log('Copying text command was ' + msg);
+		}
+
+		const checkFill = (type) => {
+			try {
+				if (type === 'tenmax') {
+					const bid_status = document.querySelector('#boost_space').getAttribute('data-rmax-result');
+					const status = document.querySelector('.rmax').getAttribute('data-rmax-status');
+					console.log(type, 'fill');
+					return bid_status == "BID_SUCCESS" || status == "ad displayed";
+				}
+			} catch {
+				console.log('No ads');
+			}
+		}
+
+		const closeCountDownBox = () => {
+			event.stopPropagation();
+
+			if (!setCountdown) return;
+
+			clearInterval(setCountdown);
+			document.querySelector('.auto-open-box').classList.remove("auto-open-box-active");
+		}
+
+		const isMobile = () => {
+			return false;
+		}
+	</script>
+
+</body>
+
+</html>
